@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Sushendra Kumar — B.Tech CSE student and aspiring Web Development Intern.">
+  <title>Sushendra Kumar | Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <style>
+    :root {
+      --bg: #0b1020;
+      --panel: #121a2e;
+      --text: #f1f5f9;
+      --muted: #a4b0c5;
+      --accent: #38bdf8;
+      --purple: #a78bfa;
+      --border: rgba(255,255,255,.1);
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+    body { font-family: Poppins, sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; }
+    a { color: inherit; text-decoration: none; }
+    .container { width: min(1120px, 90%); margin: auto; }
+    header { position: sticky; top: 0; z-index: 50; background: rgba(11,16,32,.94); backdrop-filter: blur(15px); border-bottom: 1px solid var(--border); }
+    nav { min-height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+    .logo { font-size: 1.45rem; font-weight: 800; white-space: nowrap; }
+    .logo span, .highlight { color: var(--accent); }
+    .nav-links { display: flex; align-items: center; gap: 25px; list-style: none; }
+    .nav-links a { color: var(--muted); font-size: .9rem; transition: .2s; }
+    .nav-links a:hover { color: var(--accent); }
+    .menu-btn { display: none; background: none; border: 0; color: var(--text); font-size: 1.5rem; cursor: pointer; }
+    section { padding: 78px 0; scroll-margin-top: 76px; }
+    .hero { min-height: 82vh; display: flex; align-items: center; position: relative; overflow: hidden; }
+    .hero:before { content: ""; position: absolute; width: 460px; height: 460px; right: -100px; top: 50px; background: var(--purple); filter: blur(170px); opacity: .12; pointer-events: none; }
+    .hero-grid { display: grid; grid-template-columns: 1.3fr .8fr; align-items: center; gap: 55px; }
+    .eyebrow { color: var(--accent); font-size: .8rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; }
+    h1 { font-size: clamp(2.6rem, 6vw, 4.5rem); line-height: 1.2; margin: 16px 0; letter-spacing: -2px; }
+    .hero h2 { font-size: clamp(1.15rem, 2.8vw, 1.65rem); color: var(--muted); font-weight: 500; }
+    .hero p, .section-description { color: var(--muted); margin: 20px 0; max-width: 680px; }
+    .buttons { display: flex; flex-wrap: wrap; gap: 13px; margin-top: 25px; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 9px; border: 1px solid var(--accent); border-radius: 10px; padding: 12px 20px; font-weight: 600; transition: .2s; cursor: pointer; }
+    .btn-primary { background: var(--accent); color: #06111c; }
+    .btn-outline { color: var(--accent); }
+    .btn:hover { transform: translateY(-3px); }
+    .code-card { width: min(100%, 360px); justify-self: center; background: rgba(18,26,46,.9); border: 1px solid var(--border); border-radius: 22px; padding: 27px; box-shadow: 0 25px 80px rgba(0,0,0,.25); transform: rotate(2deg); }
+    .code-dots { display: flex; gap: 7px; margin-bottom: 23px; }
+    .code-dots span { width: 11px; height: 11px; border-radius: 50%; background: #fb7185; }
+    .code-dots span:nth-child(2) { background: #fbbf24; } .code-dots span:nth-child(3) { background: #4ade80; }
+    pre { white-space: pre-wrap; overflow-wrap: anywhere; font-family: Consolas, monospace; font-size: .88rem; color: #cbd5e1; line-height: 2; }
+    .purple { color: var(--purple); } .green { color: #86efac; } .blue { color: var(--accent); }
+    .social-links { display: flex; gap: 16px; margin-top: 22px; }
+    .social-links a { color: var(--accent); font-size: 1.4rem; }
+    .section-title { font-size: clamp(2rem, 4vw, 2.7rem); margin-bottom: 12px; }
+    .section-title span { color: var(--accent); }
+    .section-description { margin: 0 auto 35px; }
+    .card { background: linear-gradient(145deg, #151e34, #101728); border: 1px solid var(--border); border-radius: 20px; padding: 26px; transition: .25s; }
+    .card:hover { transform: translateY(-4px); border-color: rgba(56,189,248,.5); }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; }
+    .card h3 { margin-bottom: 10px; font-size: 1.2rem; }
+    .card p { color: var(--muted); }
+    .info-list { display: grid; gap: 13px; margin-top: 18px; }
+    .info-list div { display: flex; gap: 12px; align-items: flex-start; color: var(--muted); overflow-wrap: anywhere; }
+    .info-list i { color: var(--accent); margin-top: 5px; }
+    .skills-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; }
+    .skill { text-align: center; padding: 23px 12px; }
+    .skill i { color: var(--accent); font-size: 2.15rem; margin-bottom: 10px; }
+    .skill h3 { font-size: .98rem; margin: 0; }
+    .projects-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .project-icon { min-height: 135px; display: grid; place-items: center; background: radial-gradient(circle at 25% 20%, rgba(56,189,248,.2), transparent 55%), #0a1a31; border-radius: 12px; margin-bottom: 16px; color: var(--accent); font-size: 3rem; }
+    .tags { display: flex; flex-wrap: wrap; gap: 7px; margin: 16px 0; }
+    .tags span { background: rgba(56,189,248,.12); color: #a5e6ff; border-radius: 20px; padding: 4px 9px; font-size: .73rem; }
+    .project-link { color: var(--accent); font-size: .9rem; font-weight: 600; display: inline-flex; gap: 8px; align-items: center; }
+    .education-list { display: grid; gap: 20px; max-width: 850px; }
+    .education-card { display: grid; grid-template-columns: 55px 1fr auto; gap: 18px; align-items: center; }
+    .education-card > i { color: var(--accent); font-size: 2rem; text-align: center; }
+    .education-card h3 { margin-bottom: 4px; }
+    .education-card p { color: var(--muted); }
+    .percentage { color: var(--accent); font-weight: 700; white-space: nowrap; }
+    .contact-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 25px; }
+    .contact-form { display: grid; gap: 14px; }
+    .contact-form input, .contact-form textarea { width: 100%; padding: 13px 15px; background: #0b1020; border: 1px solid var(--border); border-radius: 10px; color: var(--text); outline: none; }
+    .contact-form input:focus, .contact-form textarea:focus { border-color: var(--accent); }
+    .contact-form textarea { min-height: 125px; resize: vertical; }
+    .form-note { font-size: .78rem; color: var(--muted); }
+    footer { padding: 25px 0; text-align: center; color: var(--muted); border-top: 1px solid var(--border); font-size: .88rem; }
+    .top-link { position: fixed; right: 18px; bottom: 18px; width: 42px; height: 42px; display: grid; place-items: center; border: 1px solid var(--accent); border-radius: 50%; background: #101a2c; color: var(--accent); }
+    @media (max-width: 900px) {
+      .hero-grid { grid-template-columns: 1fr; gap: 30px; }
+      .code-card { justify-self: start; transform: none; }
+      .skills-grid { grid-template-columns: repeat(3, 1fr); }
+      .projects-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 700px) {
+      .menu-btn { display: block; }
+      .nav-links { display: none; position: absolute; left: 0; right: 0; top: 76px; padding: 22px 5%; background: #0b1020; border-bottom: 1px solid var(--border); flex-direction: column; align-items: flex-start; gap: 17px; }
+      .nav-links.open { display: flex; }
+      .about-grid, .contact-grid { grid-template-columns: 1fr; }
+      .skills-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    @media (max-width: 520px) {
+      section { padding: 58px 0; }
+      .skills-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+      .projects-grid { grid-template-columns: 1fr; }
+      .education-card { grid-template-columns: 40px 1fr; }
+      .percentage { grid-column: 2; }
+      .buttons .btn { width: 100%; }
+      h1 { letter-spacing: -1px; }
+    }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; } }
+  </style>
+</head>
+<body>
+<header>
+  <nav class="container">
+    <a href="#home" class="logo">Sushendra<span>.</span></a>
+    <button class="menu-btn" id="menuBtn" aria-label="Open navigation menu" aria-expanded="false"><i class="fa-solid fa-bars"></i></button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home">Home</a></li><li><a href="#about">About</a></li><li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li><li><a href="#education">Education</a></li><li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <section class="hero" id="home">
+    <div class="container hero-grid">
+      <div>
+        <p class="eyebrow">Welcome to my portfolio</p>
+        <h1>Hi, I'm <span class="highlight">Sushendra Kumar</span></h1>
+        <h2>Aspiring Web Developer | B.Tech CSE Student</h2>
+        <p>I enjoy building websites and learning new technologies. I am looking for a Web Development Internship where I can improve my skills, work on real-world projects, and grow as a developer.</p>
+        <div class="buttons">
+          <a href="#projects" class="btn btn-primary"><i class="fa-solid fa-code"></i> Explore Projects</a>
+          <a href="#contact" class="btn btn-outline"><i class="fa-regular fa-envelope"></i> Contact Me</a>
+        </div>
+        <div class="social-links">
+          <a href="https://github.com/sushendrakumar" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+          <!-- PLACEHOLDER: Add your LinkedIn profile URL when you have one. -->
+        </div>
+      </div>
+      <div class="code-card">
+        <div class="code-dots"><span></span><span></span><span></span></div>
+        <pre><span class="purple">const</span> developer = {
+  name: <span class="green">"Sushendra Kumar"</span>,
+  role: <span class="green">"Web Developer"</span>,
+  skills: [
+    <span class="green">"HTML"</span>,
+    <span class="green">"CSS"</span>,
+    <span class="green">"JavaScript"</span>,
+    <span class="green">"Python"</span>,
+    <span class="green">"Big Data"</span>,
+    <span class="green">"Android"</span>
+  ],
+  learning: <span class="blue">true</span>
+};</pre>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="container">
+      <h2 class="section-title"><span>About</span> Me</h2>
+      <div class="about-grid">
+        <div class="card">
+          <h3><i class="fa-solid fa-user highlight"></i> Who I Am</h3>
+          <p>I am Sushendra Kumar, a 2nd Year B.Tech student in Computer Science and Engineering at G. Pulla Reddy Engineering College, Kurnool. I completed my Diploma in CSE at Newtons Institute of Engineering, Guntur. I am interested in web development, programming, databases, Android programming, and Big Data.</p>
+        </div>
+        <div class="card">
+          <h3><i class="fa-solid fa-bullseye highlight"></i> Career Goal</h3>
+          <p>My target role is Web Development Intern. I want to build practical experience, improve my coding skills, and contribute to useful software projects.</p>
+          <div class="info-list">
+            <div><i class="fa-solid fa-graduation-cap"></i><span>G. Pulla Reddy Engineering College, Kurnool</span></div>
+            <div><i class="fa-solid fa-laptop-code"></i><span>Branch: Computer Science and Engineering (CSE)</span></div>
+            <div><i class="fa-solid fa-briefcase"></i><span>Target: Web Development Intern</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="container">
+      <h2 class="section-title">My <span>Skills</span></h2>
+      <p class="section-description">Technologies and programming areas I am learning.</p>
+      <div class="skills-grid">
+        <div class="card skill"><i class="fa-brands fa-html5"></i><h3>HTML</h3></div>
+        <div class="card skill"><i class="fa-brands fa-css3-alt"></i><h3>CSS</h3></div>
+        <div class="card skill"><i class="fa-brands fa-js"></i><h3>JavaScript</h3></div>
+        <div class="card skill"><i class="fa-brands fa-php"></i><h3>PHP</h3></div>
+        <div class="card skill"><i class="fa-solid fa-database"></i><h3>MySQL</h3></div>
+        <div class="card skill"><i class="fa-brands fa-python"></i><h3>Python</h3></div>
+        <div class="card skill"><i class="fa-solid fa-c"></i><h3>C Programming</h3></div>
+        <div class="card skill"><i class="fa-brands fa-android"></i><h3>Android Programming</h3></div>
+        <div class="card skill"><i class="fa-solid fa-chart-column"></i><h3>Big Data</h3></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="container">
+      <h2 class="section-title">My <span>Projects</span></h2>
+      <p class="section-description">Selected projects I have worked on.</p>
+      <div class="projects-grid">
+        <article class="card">
+          <div class="project-icon"><i class="fa-solid fa-hospital"></i></div>
+          <h3>Ankuara Apex Hospital</h3>
+          <p>A hospital OP token and appointment website project designed to help patients register, view doctors, book appointments, and proceed through payment and receipt pages. It includes patient and doctor workflows.</p>
+          <div class="tags"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>PHP</span><span>MySQL</span></div>
+          <!-- PLACEHOLDER: Replace this with the exact repository URL for this project. -->
+          <a class="project-link" href="https://github.com/sushendrakumar" target="_blank" rel="noopener noreferrer">View on GitHub <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+        </article>
+        <article class="card">
+          <div class="project-icon"><i class="fa-solid fa-droplet"></i></div>
+          <h3>Blood Donor Finder</h3>
+          <p>A project intended to help connect people looking for blood donors with potential donors. Add the exact features you have implemented before publishing.</p>
+          <div class="tags"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
+          <!-- PLACEHOLDER: Replace this with the exact repository URL for this project. -->
+          <a class="project-link" href="https://github.com/sushendrakumar" target="_blank" rel="noopener noreferrer">View on GitHub <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+        </article>
+        <article class="card">
+          <div class="project-icon"><i class="fa-solid fa-shield-halved"></i></div>
+          <h3>Login System</h3>
+          <p>A login-system project. Update this description with the actual features implemented, such as user registration, login validation, or database integration.</p>
+          <div class="tags"><span>HTML</span><span>CSS</span><span>PHP</span><span>MySQL</span></div>
+          <!-- PLACEHOLDER: Replace this with the exact repository URL for this project. -->
+          <a class="project-link" href="https://github.com/sushendrakumar" target="_blank" rel="noopener noreferrer">View on GitHub <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="education">
+    <div class="container">
+      <h2 class="section-title">My <span>Education</span></h2>
+      <p class="section-description">My academic background and marks.</p>
+      <div class="education-list">
+        <article class="card education-card">
+          <i class="fa-solid fa-graduation-cap"></i>
+          <div><h3>B.Tech — Computer Science and Engineering</h3><p>G. Pulla Reddy Engineering College (GPREC), Kurnool, Andhra Pradesh</p><p>Currently pursuing 2nd Year</p></div>
+          <div class="percentage">Pursuing</div>
+        </article>
+        <article class="card education-card">
+          <i class="fa-solid fa-laptop-code"></i>
+          <div><h3>Diploma in Computer Science and Engineering</h3><p>Newtons Institute of Engineering, Guntur</p></div>
+          <div class="percentage">89.94%</div>
+        </article>
+        <article class="card education-card">
+          <i class="fa-solid fa-school"></i>
+          <div><h3>10th Class</h3><p>ZP High School, Yerukalacheruvu Village, Kurnool</p></div>
+          <div class="percentage">86.6%</div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container">
+      <h2 class="section-title">Contact <span>Me</span></h2>
+      <p class="section-description">Feel free to contact me about internship opportunities or collaborations.</p>
+      <div class="contact-grid">
+        <div class="card">
+          <h3>Let's Connect</h3>
+          <p>I am interested in learning, collaborating, and exploring Web Development Internship opportunities.</p>
+          <div class="info-list">
+            <div><i class="fa-solid fa-envelope"></i><a href="mailto:boyasushendra7@gmail.com">boyasushendra7@gmail.com</a></div>
+            <div><i class="fa-solid fa-phone"></i><a href="tel:+919177582892">+91 9177582892</a></div>
+            <div><i class="fa-solid fa-location-dot"></i><span>GPREC, Kurnool, Andhra Pradesh</span></div>
+            <div><i class="fa-brands fa-github"></i><a href="https://github.com/sushendrakumar" target="_blank" rel="noopener noreferrer">github.com/sushendrakumar</a></div>
+            <div><i class="fa-brands fa-linkedin"></i><span>LinkedIn: Add profile link when available</span></div>
+          </div>
+        </div>
+        <div class="card">
+          <form class="contact-form" id="contactForm">
+            <div><label for="name">Your Name</label><input id="name" name="name" placeholder="Your name" required></div>
+            <div><label for="email">Your Email</label><input id="email" name="email" type="email" placeholder="Your email" required></div>
+            <div><label for="subject">Subject</label><input id="subject" name="subject" placeholder="Subject" required></div>
+            <div><label for="message">Message</label><textarea id="message" name="message" placeholder="Your message" required></textarea></div>
+            <button class="btn btn-primary" type="submit"><i class="fa-regular fa-paper-plane"></i> Prepare Email</button>
+            <p class="form-note">This opens your email application with the message filled in. It does not send email directly from the website.</p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer><div class="container">© <span id="year"></span> Sushendra Kumar. All rights reserved.</div></footer>
+<a class="top-link" href="#home" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></a>
+
+<script>
+  const menuBtn = document.getElementById('menuBtn');
+  const navLinks = document.getElementById('navLinks');
+
+  menuBtn.addEventListener('click', () => {
+    const open = navLinks.classList.toggle('open');
+    menuBtn.setAttribute('aria-expanded', String(open));
+    menuBtn.innerHTML = open ? '<i class="fa-solid fa-xmark"></i>' : '<i class="fa-solid fa-bars"></i>';
+  });
+
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+      navLinks.classList.remove('open');
+      menuBtn.setAttribute('aria-expanded', 'false');
+      menuBtn.innerHTML = '<i class="fa-solid fa-bars"></i>';
+    });
+  });
+
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  document.getElementById('contactForm').addEventListener('submit', event => {
+    event.preventDefault();
+    const recipient = 'boyasushendra7@gmail.com';
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const subject = document.getElementById('subject').value.trim();
+    const message = document.getElementById('message').value.trim();
+    const body = `Name: ${name}\nEmail: ${email}\n\n${message}`;
+    window.location.href = `mailto:${recipient}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  });
+</script>
+</body>
+</html>
